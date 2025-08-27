@@ -79,9 +79,9 @@ body {
   cursor: crosshair;
 }
 
-/* Keep appropriate cursors for interactive elements */
+/* Custom red cross cursor for interactive elements */
 a, button, [role="button"], input[type="submit"], input[type="button"] {
-  cursor: pointer;
+  cursor: url("data:image/svg+xml,%3csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12 2v20M2 12h20' stroke='%23FF0000' stroke-width='3' stroke-linecap='round'/%3e%3c/svg%3e") 12 12, crosshair;
 }
 
 input[type="text"], input[type="email"], input[type="password"], textarea {
