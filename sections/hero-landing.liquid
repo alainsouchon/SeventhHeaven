@@ -21,6 +21,9 @@
   <!-- Dark Overlay -->
   <div class="hero-overlay"></div>
   
+  <!-- Film Grain Effect -->
+  <div class="film-grain"></div>
+  
   <div class="hero-container">
     <!-- Centered Header -->
     <header class="seventh-heaven-header centered">
@@ -95,8 +98,40 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.3);
     z-index: 2;
+  }
+
+  /* Film Grain Effect */
+  .film-grain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    opacity: 0.15;
+    background: 
+      radial-gradient(circle at 20% 80%, transparent 50%, rgba(255,255,255,0.3) 51%),
+      radial-gradient(circle at 80% 20%, transparent 50%, rgba(255,255,255,0.3) 51%),
+      radial-gradient(circle at 40% 40%, transparent 50%, rgba(0,0,0,0.3) 51%),
+      linear-gradient(0deg, transparent 24%, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.05) 26%, transparent 27%, transparent 74%, rgba(255,255,255,0.05) 75%, rgba(255,255,255,0.05) 76%, transparent 77%, transparent),
+      linear-gradient(90deg, transparent 24%, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.05) 26%, transparent 27%, transparent 74%, rgba(255,255,255,0.05) 75%, rgba(255,255,255,0.05) 76%, transparent 77%, transparent);
+    background-size: 30px 30px, 25px 25px, 35px 35px, 4px 4px, 4px 4px;
+    animation: grain 8s steps(10) infinite;
+  }
+
+  @keyframes grain {
+    0%, 100% { transform: translate(0, 0) }
+    10% { transform: translate(-5%, -10%) }
+    20% { transform: translate(-15%, 5%) }
+    30% { transform: translate(7%, -25%) }
+    40% { transform: translate(-5%, 25%) }
+    50% { transform: translate(-15%, 10%) }
+    60% { transform: translate(15%, 0%) }
+    70% { transform: translate(0%, 15%) }
+    80% { transform: translate(3%, 35%) }
+    90% { transform: translate(-10%, 10%) }
   }
 
   .hero-container {
@@ -136,7 +171,7 @@
   }
 
   .seventh-heaven-header.centered .nav-link {
-    color: #FF0000;
+    color: #FFFFFF;
     text-decoration: none;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 18px;
@@ -144,7 +179,7 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     transition: opacity 0.2s ease;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   }
 
   .seventh-heaven-header.centered .nav-link:hover {
@@ -165,7 +200,8 @@
     width: auto;
     display: block;
     margin: 0 auto;
-    filter: hue-rotate(0deg) saturate(0%) brightness(0%) invert(18%) sepia(100%) saturate(7500%) hue-rotate(0deg);
+    filter: brightness(0) invert(1);
+    drop-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   }
 
 
