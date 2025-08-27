@@ -13,7 +13,7 @@
       "type": "product-grid",
       "settings": {
         "title": "",
-        "products_to_show": 24,
+        "products_to_show": 36,
         "show_view_all": false
       }
     }
