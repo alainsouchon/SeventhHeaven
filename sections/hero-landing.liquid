@@ -4,6 +4,23 @@
 {% endcomment %}
 
 <div class="hero-landing-section">
+  <!-- Background Slideshow -->
+  <div class="hero-slideshow">
+    <div class="hero-slide active">
+      <img src="{{ 'hero-image-1.jpg' | asset_url }}" alt="Background Image 1">
+    </div>
+    <div class="hero-slide">
+      <img src="{{ 'hero-image-2.jpg' | asset_url }}" alt="Background Image 2">
+    </div>
+    <div class="hero-slide">
+      <img src="{{ 'hero-image-3.jpg' | asset_url }}" alt="Background Image 3">
+    </div>
+    <!-- Add more slides as needed -->
+  </div>
+  
+  <!-- Dark Overlay -->
+  <div class="hero-overlay"></div>
+  
   <div class="hero-container">
     <!-- Centered Header -->
     <header class="seventh-heaven-header centered">
@@ -34,10 +51,52 @@
 {% stylesheet %}
   .hero-landing-section {
     min-height: 100vh;
-    background: #FFFFFF;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Background Slideshow */
+  .hero-slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0s ease;
+  }
+
+  .hero-slide.active {
+    opacity: 1;
+  }
+
+  .hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Dark Overlay */
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2;
   }
 
   .hero-container {
@@ -48,6 +107,8 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    position: relative;
+    z-index: 3;
   }
 
   /* Centered header styles */
@@ -75,7 +136,7 @@
   }
 
   .seventh-heaven-header.centered .nav-link {
-    color: #000000;
+    color: #FF0000;
     text-decoration: none;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 18px;
@@ -83,6 +144,7 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     transition: opacity 0.2s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   }
 
   .seventh-heaven-header.centered .nav-link:hover {
@@ -103,6 +165,7 @@
     width: auto;
     display: block;
     margin: 0 auto;
+    filter: hue-rotate(0deg) saturate(0%) brightness(0%) invert(18%) sepia(100%) saturate(7500%) hue-rotate(0deg);
   }
 
 
@@ -126,6 +189,21 @@
     }
   }
 {% endstylesheet %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const heroSlides = document.querySelectorAll('.hero-slide');
+  let currentSlide = 0;
+  
+  if (heroSlides.length > 1) {
+    setInterval(function() {
+      heroSlides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % heroSlides.length;
+      heroSlides[currentSlide].classList.add('active');
+    }, 4000); // Change slide every 4 seconds
+  }
+});
+</script>
 
 {% schema %}
 {
