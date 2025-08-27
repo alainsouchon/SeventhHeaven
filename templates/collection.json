@@ -10,8 +10,12 @@
 {
   "sections": {
     "main": {
-      "type": "collection",
-      "settings": {}
+      "type": "product-grid",
+      "settings": {
+        "title": "",
+        "products_to_show": 12,
+        "show_view_all": false
+      }
     }
   },
   "order": [

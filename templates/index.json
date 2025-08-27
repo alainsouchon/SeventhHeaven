@@ -9,16 +9,12 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "product-grid",
-      "settings": {
-        "title": "Featured Products",
-        "products_to_show": 6,
-        "show_view_all": true
-      }
+    "hero": {
+      "type": "hero-landing",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "hero"
   ]
 }

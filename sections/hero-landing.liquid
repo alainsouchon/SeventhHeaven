@@ -1,0 +1,182 @@
+{% comment %}
+  SEVENTH HEAVEN Hero Landing Section
+  Clean landing page with 3 product placeholders
+{% endcomment %}
+
+<div class="hero-landing-section">
+  <div class="hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title">SEVENTH HEAVEN</h1>
+      <p class="hero-subtitle">Discover our collection</p>
+    </div>
+    
+    <div class="hero-product-preview">
+      <div class="preview-grid">
+        <div class="preview-card">
+          <div class="preview-image-placeholder"></div>
+          <div class="preview-info">
+            <h3 class="preview-title">Product Name</h3>
+            <p class="preview-price">$XX.XX</p>
+          </div>
+        </div>
+        
+        <div class="preview-card">
+          <div class="preview-image-placeholder"></div>
+          <div class="preview-info">
+            <h3 class="preview-title">Product Name</h3>
+            <p class="preview-price">$XX.XX</p>
+          </div>
+        </div>
+        
+        <div class="preview-card">
+          <div class="preview-image-placeholder"></div>
+          <div class="preview-info">
+            <h3 class="preview-title">Product Name</h3>
+            <p class="preview-price">$XX.XX</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="hero-cta">
+        <a href="/collections/all" class="cta-button">SHOP NOW</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .hero-landing-section {
+    min-height: 100vh;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+  }
+
+  .hero-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
+    text-align: center;
+  }
+
+  .hero-content {
+    margin-bottom: 80px;
+  }
+
+  .hero-title {
+    font-family: 'Times New Roman', serif;
+    font-size: 48px;
+    font-weight: bold;
+    color: #000000;
+    margin: 0 0 20px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .hero-subtitle {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 18px;
+    color: #666666;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .hero-product-preview {
+    margin-bottom: 60px;
+  }
+
+  .preview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+
+  .preview-card {
+    background: #F5F5F5;
+    border-radius: 0;
+    overflow: hidden;
+  }
+
+  .preview-image-placeholder {
+    width: 100%;
+    height: 300px;
+    background: #E0E0E0;
+  }
+
+  .preview-info {
+    padding: 20px;
+    background: #FFFFFF;
+  }
+
+  .preview-title {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    margin: 0 0 8px 0;
+  }
+
+  .preview-price {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    color: #666666;
+    margin: 0;
+  }
+
+  .hero-cta {
+    text-align: center;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #000000;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.2s ease;
+  }
+
+  .cta-button:hover {
+    background: #333333;
+  }
+
+  @media (max-width: 768px) {
+    .hero-container {
+      padding: 0 20px;
+    }
+
+    .hero-title {
+      font-size: 36px;
+    }
+
+    .preview-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .preview-image-placeholder {
+      height: 250px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Hero Landing",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Hero Landing"
+    }
+  ]
+}
+{% endschema %}
