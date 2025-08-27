@@ -9,7 +9,7 @@
     <!-- Centered Logo -->
     <div class="header-logo">
       <a href="/" class="logo-link">
-        <h1 class="logo-text">SEVENTH HEAVEN</h1>
+        <img src="{{ 'seventh-heaven-logo.svg' | asset_url }}" alt="SEVENTH HEAVEN" class="logo-image">
       </a>
     </div>
 
@@ -69,13 +69,10 @@
     text-decoration: none;
   }
 
-  .logo-text {
-    font-family: 'Times New Roman', serif;
-    font-size: 24px;
-    font-weight: bold;
-    color: #000000;
-    margin: 0;
-    letter-spacing: 2px;
+  .logo-image {
+    height: 40px;
+    width: auto;
+    display: block;
   }
 
   @media (max-width: 768px) {
@@ -89,8 +86,8 @@
       gap: 20px;
     }
 
-    .logo-text {
-      font-size: 20px;
+    .logo-image {
+      height: 32px;
     }
   }
 {% endstylesheet %}
