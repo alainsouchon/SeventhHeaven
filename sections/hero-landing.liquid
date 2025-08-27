@@ -14,17 +14,10 @@
           <a href="/pages/archive" class="nav-link">ARCHIVE</a>
         </nav>
 
-        <!-- Centered Logo with Video Background -->
+        <!-- Centered Logo -->
         <div class="header-logo">
           <a href="/" class="logo-link">
-            <div class="logo-container">
-              <div class="logo-video-bg">
-                <video autoplay muted loop playsinline>
-                  <source src="{{ 'sunset-video.mp4' | asset_url }}" type="video/mp4">
-                </video>
-              </div>
-              <div class="logo-text">SEVENTH HEAVEN</div>
-            </div>
+            <img src="{{ 'seventh-heaven-logo.svg' | asset_url }}" alt="SEVENTH HEAVEN" class="logo-image">
           </a>
         </div>
 
@@ -103,39 +96,11 @@
     text-decoration: none;
   }
 
-  .seventh-heaven-header.centered .logo-container {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    border-radius: 4px;
-  }
-
-  .seventh-heaven-header.centered .logo-video-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
-
-  .seventh-heaven-header.centered .logo-video-bg video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .seventh-heaven-header.centered .logo-text {
-    position: relative;
-    z-index: 2;
-    font-family: 'Times New Roman', serif;
-    font-size: 24px;
-    font-weight: bold;
-    color: #FFFFFF;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    padding: 10px 20px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 4px;
+  .seventh-heaven-header.centered .logo-image {
+    height: 60px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
   }
 
 
