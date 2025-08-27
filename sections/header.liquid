@@ -16,7 +16,44 @@
     <!-- Right Navigation -->
     <nav class="header-nav header-nav-right">
       <a href="/pages/about" class="nav-link">ABOUT</a>
-      <a href="/cart" class="nav-link">CART</a>
+      <div class="cart-dropdown">
+        <a href="/cart" class="nav-link cart-trigger">CART</a>
+        <div class="cart-menu">
+          <div class="cart-header">
+            <h3>Shopping Cart</h3>
+          </div>
+          {% if cart.item_count > 0 %}
+            <div class="cart-items">
+              {% for item in cart.items limit: 3 %}
+                <div class="cart-item">
+                  <div class="cart-item-image">
+                    <img src="{{ item.image | img_url: '60x60', crop: 'center' }}" alt="{{ item.title }}">
+                  </div>
+                  <div class="cart-item-details">
+                    <h4>{{ item.title }}</h4>
+                    <p>{{ item.quantity }} × {{ item.price | money }}</p>
+                  </div>
+                </div>
+              {% endfor %}
+              {% if cart.item_count > 3 %}
+                <p class="cart-more">+{{ cart.item_count | minus: 3 }} more items</p>
+              {% endif %}
+            </div>
+            <div class="cart-footer">
+              <div class="cart-total">
+                <span>Total:</span>
+                <span>{{ cart.total_price | money }}</span>
+              </div>
+              <a href="/cart" class="cart-checkout-btn">View Cart</a>
+            </div>
+          {% else %}
+            <div class="cart-empty">
+              <p>Your cart is empty</p>
+              <a href="/collections/all" class="cart-shop-btn">Start Shopping</a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
     </nav>
   </div>
 </header>
@@ -74,6 +111,178 @@
     width: auto;
     display: block;
     margin: 0 auto;
+  }
+
+  /* Cart Dropdown Styles */
+  .cart-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .cart-trigger {
+    cursor: pointer;
+  }
+
+  .cart-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 320px;
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    margin-top: 10px;
+  }
+
+  .cart-dropdown:hover .cart-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .cart-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #E5E5E5;
+  }
+
+  .cart-header h3 {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+  }
+
+  .cart-items {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .cart-item {
+    display: flex;
+    padding: 15px 20px;
+    border-bottom: 1px solid #F5F5F5;
+    align-items: center;
+  }
+
+  .cart-item:last-child {
+    border-bottom: none;
+  }
+
+  .cart-item-image {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    flex-shrink: 0;
+  }
+
+  .cart-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+
+  .cart-item-details {
+    flex: 1;
+  }
+
+  .cart-item-details h4 {
+    margin: 0 0 5px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #000000;
+  }
+
+  .cart-item-details p {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 12px;
+    color: #666666;
+  }
+
+  .cart-more {
+    padding: 10px 20px;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 12px;
+    color: #666666;
+    text-align: center;
+  }
+
+  .cart-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #E5E5E5;
+  }
+
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #000000;
+  }
+
+  .cart-checkout-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #000000;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    transition: background-color 0.2s ease;
+  }
+
+  .cart-checkout-btn:hover {
+    background: #333333;
+  }
+
+  .cart-empty {
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .cart-empty p {
+    margin: 0 0 15px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    color: #666666;
+  }
+
+  .cart-shop-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #000000;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    transition: background-color 0.2s ease;
+  }
+
+  .cart-shop-btn:hover {
+    background: #333333;
   }
 
   @media (max-width: 768px) {
