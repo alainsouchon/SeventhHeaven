@@ -141,8 +141,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 80%;
-    max-height: 80%;
+    max-width: 90%;
+    max-height: 90%;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -291,7 +291,7 @@ document.addEventListener('DOMContentLoaded', function() {
         slides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide + 1) % slides.length;
         slides[currentSlide].classList.add('active');
-      }, 3000); // Change slide every 3 seconds
+      }, 2000); // Change slide every 2 seconds
     }
   });
 });
