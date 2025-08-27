@@ -1,17 +1,12 @@
 {% comment %}
   SEVENTH HEAVEN Hero Landing Section
-  Clean landing page with just centered logo and navigation
+  Clean landing page with vertically centered header
 {% endcomment %}
 
 <div class="hero-landing-section">
   <div class="hero-container">
     <div class="hero-content">
       <h1 class="hero-title">SEVENTH HEAVEN</h1>
-      <p class="hero-subtitle">Discover our collection</p>
-    </div>
-    
-    <div class="hero-cta">
-      <a href="/collections/all" class="cta-button">SHOP NOW</a>
     </div>
   </div>
 </div>
@@ -23,7 +18,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px 0;
   }
 
   .hero-container {
@@ -34,7 +28,6 @@
   }
 
   .hero-content {
-    margin-bottom: 60px;
     text-align: center;
   }
 
@@ -43,41 +36,12 @@
     font-size: 48px;
     font-weight: bold;
     color: #000000;
-    margin: 0 0 20px 0;
+    margin: 0;
     letter-spacing: 2px;
     text-transform: uppercase;
   }
 
-  .hero-subtitle {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 18px;
-    color: #666666;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
 
-  .hero-cta {
-    text-align: center;
-  }
-
-  .cta-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background: #000000;
-    color: #FFFFFF;
-    text-decoration: none;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: background-color 0.2s ease;
-  }
-
-  .cta-button:hover {
-    background: #333333;
-  }
 
   @media (max-width: 768px) {
     .hero-container {
