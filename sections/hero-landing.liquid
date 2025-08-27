@@ -5,7 +5,29 @@
 
 <div class="hero-landing-section">
   <div class="hero-container">
-    <!-- Header content will be handled by the header section -->
+    <!-- Centered Header -->
+    <header class="seventh-heaven-header centered">
+      <div class="header-container">
+        <!-- Left Navigation -->
+        <nav class="header-nav header-nav-left">
+          <a href="/collections/all" class="nav-link">SHOP</a>
+          <a href="/pages/archive" class="nav-link">ARCHIVE</a>
+        </nav>
+
+        <!-- Centered Logo -->
+        <div class="header-logo">
+          <a href="/" class="logo-link">
+            <img src="{{ 'seventh-heaven-logo.svg' | asset_url }}" alt="SEVENTH HEAVEN" class="logo-image">
+          </a>
+        </div>
+
+        <!-- Right Navigation -->
+        <nav class="header-nav header-nav-right">
+          <a href="/pages/about" class="nav-link">ABOUT</a>
+          <a href="/cart" class="nav-link">CART</a>
+        </nav>
+      </div>
+    </header>
   </div>
 </div>
 
@@ -26,6 +48,59 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+  }
+
+  /* Centered header styles */
+  .seventh-heaven-header.centered {
+    background: transparent;
+    border-bottom: none;
+    position: static;
+    padding: 0;
+  }
+
+  .seventh-heaven-header.centered .header-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .seventh-heaven-header.centered .header-nav {
+    display: flex;
+    gap: 40px;
+  }
+
+  .seventh-heaven-header.centered .nav-link {
+    color: #000000;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: opacity 0.2s ease;
+  }
+
+  .seventh-heaven-header.centered .nav-link:hover {
+    opacity: 0.7;
+  }
+
+  .seventh-heaven-header.centered .header-logo {
+    flex: 1;
+    text-align: center;
+  }
+
+  .seventh-heaven-header.centered .logo-link {
+    text-decoration: none;
+  }
+
+  .seventh-heaven-header.centered .logo-image {
+    height: 40px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
   }
 
 
